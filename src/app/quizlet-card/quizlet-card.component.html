@@ -1,1 +1,16 @@
-<p>quizlet-card works!</p>
+<div class="item item_front" *ngIf = "card.side === 'front'" (click)="flipCardToBack()">
+   <div class="item-content">
+        <div class="close" (click)="removeCard()"></div>
+        <div class="name">{{ card.title }}</div>
+    </div>
+</div>
+
+<div class="item item_back" *ngIf = "card.side === 'back'" (click)="flipCardToFront()">
+    <div class="item-content">
+        <div class="close" (click)="removeCard()"></div>
+        <div class="name">{{card.title}}</div>
+        <div class="description">
+            {{card.description}}
+        </div>
+    </div>
+</div>

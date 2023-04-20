@@ -8,8 +8,11 @@ import { QuizletCardComponent } from './quizlet-card.component';
   declarations: [
     QuizletCardComponent
   ],
+  exports: [
+    QuizletCardComponent,
+  ],
   imports: [
-    CommonModule
+    CommonModule,
   ]
 })
 export class QuizletCardModule { }

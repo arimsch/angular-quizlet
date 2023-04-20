@@ -1,1 +1,6 @@
-<p>quizlet-list-cards works!</p>
+<div class="list">
+    <app-quizlet-card *ngFor="let c of cardService.cards"
+    [card]="c" 
+    (deleteCard)="deleteCard($event)"
+    (viewBackSide)="viewBack($event)"></app-quizlet-card>
+</div>
