@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Card } from 'src/shared/models/card';
 
@@ -6,19 +12,19 @@ import { Card } from 'src/shared/models/card';
   selector: 'app-quizlet-add-card',
   templateUrl: './quizlet-add-card.component.html',
   styleUrls: ['./quizlet-add-card.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class QuizletAddCardComponent implements OnInit{
+export class QuizletAddCardComponent implements OnInit {
   public form!: FormGroup;
 
   @Output()
-  add = new EventEmitter<Card>;
+  add = new EventEmitter<Card>();
 
   public buildAddCardForm(): void {
     this.form = this.fb.group({
       title: [null, [Validators.required]],
-      description: [null, [Validators.required]]
-    })
+      description: [null, [Validators.required]],
+    });
   }
 
   constructor(private readonly fb: FormBuilder) {}
@@ -27,10 +33,9 @@ export class QuizletAddCardComponent implements OnInit{
     this.buildAddCardForm();
   }
 
-  public submitAddCard() {
+  public submitAddCard(formValue: FormGroup<any>): void {
     this.add.emit({
-      title: this.form.get('title')?.value,
-      description: this.form.get('description')?.value,
+      ...formValue.value,
       side: 'front',
     });
     this.form.reset();

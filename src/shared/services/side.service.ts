@@ -12,19 +12,21 @@ export class SideService {
       return this._cardOpen;
     }
 
-    public changeCardSide(param: "front" | "back"): void {
+    private changeCardSide(param: "front" | "back"): void {
       this._cardOpen!.side = param;
     }
 
-    public setHasOpen(param: boolean): void {
-      this._hasOpen = param;
-    }
-
-    public setCardOpen(card: Card | null): void {
+    public flipCard(card: Card | null): void {
+      this._hasOpen = true;
       if(this._cardOpen) {
         this.changeCardSide("front");
       }
-      this._cardOpen = card;
-      this.changeCardSide("back");    
+      if (this._cardOpen !== card) {
+        this._cardOpen = card;
+        this.changeCardSide("back");    
+      } else {
+        this._cardOpen = null;
+        this._hasOpen = false;
+      }
     }
 }

@@ -7,15 +7,9 @@ import { QuizletAddCardModule } from '../quizlet-add-card/quizlet-add-card.modul
 import { CardsMockApiServiceService } from 'src/shared/services/cards-mock-api-service.service';
 import { ICardsApiServiceToken } from 'src/shared/interfaces/i-cards-api-service';
 
-
-
 @NgModule({
-  declarations: [
-    QuizletComponent
-  ],
-  exports: [
-    QuizletComponent,
-  ],
+  declarations: [QuizletComponent],
+  exports: [QuizletComponent],
   imports: [
     CommonModule,
     QuizletListCardsModule,
@@ -23,8 +17,7 @@ import { ICardsApiServiceToken } from 'src/shared/interfaces/i-cards-api-service
     QuizletAddCardModule,
   ],
   providers: [
-    {provide: ICardsApiServiceToken, useClass: CardsMockApiServiceService},
-    // {provide: IPositionsApiServiceToken, useClass: PositionsApiService}
-  ]
+    { provide: ICardsApiServiceToken, useClass: CardsMockApiServiceService }
+  ],
 })
-export class QuizletModule { }
+export class QuizletModule {}
