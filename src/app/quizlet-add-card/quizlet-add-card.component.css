@@ -11,7 +11,7 @@
     text-align: center;
 }
 
-.row + .row {
+.row+.row {
     margin-top: 15px;
 }
 

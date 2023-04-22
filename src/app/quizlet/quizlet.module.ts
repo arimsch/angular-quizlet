@@ -17,7 +17,7 @@ import { ICardsApiServiceToken } from 'src/shared/interfaces/i-cards-api-service
     QuizletAddCardModule,
   ],
   providers: [
-    { provide: ICardsApiServiceToken, useClass: CardsMockApiServiceService }
+    { provide: ICardsApiServiceToken, useClass: CardsMockApiServiceService },
   ],
 })
 export class QuizletModule {}

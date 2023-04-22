@@ -5,28 +5,28 @@ import { Card } from '../models/card';
   providedIn: 'root',
 })
 export class SideService {
-    private _hasOpen = false;
-    private _cardOpen: Card|null = null;
+  private _isOpen = false;
+  private _openedCard: Card | null = null;
 
-    public get cardOpen(): Card | null {
-      return this._cardOpen;
-    }
+  public get openedCard(): Card | null {
+    return this._openedCard;
+  }
 
-    private changeCardSide(param: "front" | "back"): void {
-      this._cardOpen!.side = param;
-    }
+  private changeCardSide(param: 'front' | 'back'): void {
+    this._openedCard!.side = param;
+  }
 
-    public flipCard(card: Card | null): void {
-      this._hasOpen = true;
-      if(this._cardOpen) {
-        this.changeCardSide("front");
-      }
-      if (this._cardOpen !== card) {
-        this._cardOpen = card;
-        this.changeCardSide("back");    
-      } else {
-        this._cardOpen = null;
-        this._hasOpen = false;
-      }
+  public flipCard(card: Card | null): void {
+    this._isOpen = true;
+    if (this._openedCard) {
+      this.changeCardSide('front');
     }
+    if (this._openedCard !== card) {
+      this._openedCard = card;
+      this.changeCardSide('back');
+    } else {
+      this._openedCard = null;
+      this._isOpen = false;
+    }
+  }
 }

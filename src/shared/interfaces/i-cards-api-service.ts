@@ -1,6 +1,6 @@
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 import { Card } from '../models/card';
-import {InjectionToken} from '@angular/core';
+import { InjectionToken } from '@angular/core';
 
 export const ICardsApiServiceToken = new InjectionToken('ICardsApiService');
 

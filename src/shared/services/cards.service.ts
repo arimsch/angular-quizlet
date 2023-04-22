@@ -20,25 +20,25 @@ export class CardsService {
     return this._cards;
   }
 
-  private updateServiceState() {
+  private updateCardsState() {
     this.cardsApiService.getAllCards().subscribe((cards) => {
       this._cards = cards;
     });
   }
 
   public initialize() {
-    this.updateServiceState();
+    this.updateCardsState();
   }
 
   public delCard(card: Card): void {
     this.cardsApiService.delete(card.id!).subscribe(() => {
-      this.updateServiceState();
+      this.updateCardsState();
     });
   }
 
   public addCard(card: Card): void {
     this.cardsApiService.add(card).subscribe(() => {
-      this.updateServiceState();
+      this.updateCardsState();
     });
   }
 }

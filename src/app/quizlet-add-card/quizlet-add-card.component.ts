@@ -20,7 +20,7 @@ export class QuizletAddCardComponent implements OnInit {
   @Output()
   add = new EventEmitter<Card>();
 
-  public buildAddCardForm(): void {
+  private buildCardForm(): void {
     this.form = this.fb.group({
       title: [null, [Validators.required]],
       description: [null, [Validators.required]],
@@ -30,10 +30,10 @@ export class QuizletAddCardComponent implements OnInit {
   constructor(private readonly fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.buildAddCardForm();
+    this.buildCardForm();
   }
 
-  public submitAddCard(formValue: FormGroup<any>): void {
+  public submitCardForm(formValue: FormGroup<any>): void {
     this.add.emit({
       ...formValue.value,
       side: 'front',

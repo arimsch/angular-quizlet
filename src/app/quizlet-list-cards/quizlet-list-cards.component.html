@@ -1,6 +1,4 @@
 <div class="list">
-    <app-quizlet-card *ngFor="let c of this.cards"
-    [card]="c" 
-    (deleteCard)="deleteCard($event)"
-    (changeSide)="flipCard($event)"></app-quizlet-card>
+    <app-quizlet-card *ngFor="let c of this.cards" [card]="c" (deleteCard)="deleteCard($event)"
+        (changeSide)="flipCard($event)"></app-quizlet-card>
 </div>
