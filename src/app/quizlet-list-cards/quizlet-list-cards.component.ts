@@ -18,7 +18,7 @@ export class QuizletListCardsComponent implements OnInit {
     this.cardService.initialize();
   }
 
-  public get cards() {
+  public get cards(): Card[] {
     return this.cardService.cards;
   }
 

@@ -20,13 +20,13 @@ export class CardsService {
     return this._cards;
   }
 
-  private updateCardsState() {
+  private updateCardsState(): void {
     this.cardsApiService.getAllCards().subscribe((cards) => {
       this._cards = cards;
     });
   }
 
-  public initialize() {
+  public initialize(): void {
     this.updateCardsState();
   }
 
